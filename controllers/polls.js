@@ -13,12 +13,9 @@ exports.home = function (req, res) {
 exports.create = function (req, res) {
 	console.log(req.body);
 
-
 	var p = new Poll({question: req.body.question});
 
 	p.initPoll(req.body.choicearr, function(err) {
-		console.log("test");
-
 		res.render('vote', {
 			poll_id: p._id,
 			title: 'Duckpoll'

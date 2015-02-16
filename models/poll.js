@@ -11,10 +11,19 @@ PollSchema.path('question').required(true);
 PollSchema.methods = {
 
 	// add choices to new poll
-	initPoll: function(choices, callback) {
+	initPoll: function(inpchoices, callback) {
 		console.log(this.question);
-		console.log(choices);
 		console.log(this._id);
+
+		var i;
+		var choices = [];
+		
+		for (i = 0; i < inpchoices.length; i++) {
+			if (inpchoices[i].length > 0)
+				choices.push(inpchoices[i]);
+		}
+
+		console.log(choices);
 
 		this.save(callback);
 	}
