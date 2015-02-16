@@ -38,7 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-console.log("success!");
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -70,5 +69,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+console.log("success!");
 
 module.exports = app;

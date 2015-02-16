@@ -8,4 +8,8 @@ var PollSchema = new mongoose.Schema({
 
 PollSchema.path('question').required(true);
 
+PollSchema.methods = {
+	
+}
+
 module.exports = mongoose.model('Poll', PollSchema);
