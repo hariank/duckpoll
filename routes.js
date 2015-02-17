@@ -5,8 +5,9 @@ var router = express.Router();
 router.get('/', polls.home);
 router.post('/', polls.create);
 
-router.get('/:id', polls.vote);
+router.get('/:id', polls.show);
+router.post('/:id', polls.vote);
 
-router.get('/:id/results', polls.show);
+router.get('/:id/results', polls.results);
 
 module.exports = router;

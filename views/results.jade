@@ -1,7 +1,11 @@
 extends layout
 
 block content
-	p Results of Poll #{poll_id}:
+	//- p Results of Poll #{poll_id}:
+	h3= poll.question
+
+	each choice in poll.choices
+		li #{choice.content} Votes: #{choice.votes}
 
 	script(type='text/javascript').
 		console.log(!{JSON.stringify(poll_id)});

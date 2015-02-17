@@ -3,6 +3,8 @@ extends layout
 block content
 	p Create a Poll:
 
+	a(href='/54e3b28cb00cd1f832bf6cec') TEST LINK
+
 	mixin choice
 		input.form-control(type='text', name='choicearr', placeholder='Choice')
 
@@ -10,11 +12,10 @@ block content
 		.col-md-6
 			form(id='pollForm', action='/', method='post')
 				.form-group
-					input#inpQ.form-control(type='text', name='question', placeholder='Enter a question...')
+					input.form-control(type='text', name='question', placeholder='Enter a question...')
 					#inpChoices
 						+choice
 						+choice
 						+choice
 				button.btn.btn-default(type = 'submit') Go!
-
 

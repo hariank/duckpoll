@@ -10,8 +10,10 @@ PollSchema.path('question').required(true);
 
 PollSchema.methods = {
 	voteChoice: function (choiceInd, callback) {
-		choices[choiceInd].votes += 1;
-		this.save(callback);
+		this.choices[choiceInd].votes += 1;
+		this.save(function() {
+			callback();
+		});
 	}
 }
 
