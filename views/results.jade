@@ -2,3 +2,7 @@ extends layout
 
 block content
 	p Results of Poll #{poll_id}:
+
+	script(type='text/javascript').
+		console.log(!{JSON.stringify(poll_id)});
+		console.log(!{JSON.stringify(poll_choices)});

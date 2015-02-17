@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Poll = require('../models/poll.js');
-var Choice = require('../models/choice.js');
 
 /* user input */
 exports.home = function (req, res) {
@@ -13,18 +12,23 @@ exports.home = function (req, res) {
 exports.create = function (req, res) {
 	console.log(req.body);
 
-	var choiceIds = [];
-	req.body.choicearr.forEach(function (el, index) {
-		if (el.length > 0) {
-			Choice.create({content: el, votes: 0}, function (err, c) {
-				choiceIds.push(c._id);
-			});
+	var choices = [];
+	for (var i = 0; i < req.body.choicearr.length; i++) {
+		if (req.body.choicearr[i].length > 0) {
+			var curchoice = {};
+			curchoice['content'] = req.body.choicearr[i];
+			curchoice['votes'] = 0;
+			choices.push(curchoice);
 		}
-	});
+	}
 
-	Poll.create({question: req.body.question, choices: choiceIds}, function (err, p) {
+	console.log(choices);
+
+
+	Poll.create({question: req.body.question, choices: choices}, function (err, p) {
 		res.render('share', {
 			poll_id: p._id, 
+			// poll_choices: p.choices,
 			title: 'Duckpoll'
 		});
 	});
@@ -32,10 +36,20 @@ exports.create = function (req, res) {
 
 /* show poll */
 exports.vote = function (req, res) {
-	res.render('vote', {
-		poll_id: req.params.id,
-		title: 'Duckpoll'
+
+	Poll.findById(req.params.id, function (err, p) {
+
+		console.log(p);
+		var choices = p.choices;
+		console.log(choices);
+
+		res.render('vote', {
+			poll_id: req.params.id,
+			poll_choices: choices,
+			title: 'Duckpoll'
+		});
 	});
+
 };
 
 /* show poll results*/

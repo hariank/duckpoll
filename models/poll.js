@@ -9,6 +9,10 @@ var PollSchema = new mongoose.Schema({
 PollSchema.path('question').required(true);
 
 PollSchema.methods = {
+	voteChoice: function (choiceInd, callback) {
+		choices[choiceInd].votes += 1;
+		this.save(callback);
+	}
 }
 
 module.exports = mongoose.model('Poll', PollSchema);
