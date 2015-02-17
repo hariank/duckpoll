@@ -17,7 +17,6 @@ exports.create = function (req, res) {
 	req.body.choicearr.forEach(function (el, index) {
 		if (el.length > 0) {
 			Choice.create({content: el, votes: 0}, function (err, c) {
-				console.log(c);
 				choiceIds.push(c._id);
 			});
 		}
@@ -26,7 +25,6 @@ exports.create = function (req, res) {
 	Poll.create({question: req.body.question, choices: choiceIds}, function (err, p) {
 		res.render('share', {
 			poll_id: p._id, 
-			poll_link: '/' + p._id,
 			title: 'Duckpoll'
 		});
 	});
@@ -43,6 +41,7 @@ exports.vote = function (req, res) {
 /* show poll results*/
 exports.show = function (req, res) {
 	res.render('results', {
+		poll_id: req.params.id,
 		title: 'Duckpoll'
 	});
 };
