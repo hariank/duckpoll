@@ -13,24 +13,29 @@ exports.home = function (req, res) {
 exports.create = function (req, res) {
 	console.log(req.body);
 
-	var p = new Poll({question: req.body.question});
+	var choiceIds = [];
+	req.body.choicearr.forEach(function (el, index) {
+		if (el.length > 0) {
+			Choice.create({content: el, votes: 0}, function (err, c) {
+				console.log(c);
+				choiceIds.push(c._id);
+			});
+		}
+	});
 
-	p.initPoll(req.body.choicearr, function(err) {
-		res.render('vote', {
-			poll_id: p._id,
+	Poll.create({question: req.body.question, choices: choiceIds}, function (err, p) {
+		res.render('share', {
+			poll_id: p._id, 
+			poll_link: '/' + p._id,
 			title: 'Duckpoll'
 		});
 	});
-
-	// res.render('vote', {
-	// 	poll_id: p._id,
-	// 	title: 'Duckpoll'
-	// });
 };
 
 /* show poll */
 exports.vote = function (req, res) {
 	res.render('vote', {
+		poll_id: req.params.id,
 		title: 'Duckpoll'
 	});
 };
