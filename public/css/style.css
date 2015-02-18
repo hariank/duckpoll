@@ -3,12 +3,11 @@ body {
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
   /*overflow: scroll !important;*/
   background-color: #F4F2ED;
-  /*background-image: url(../img/duck.png);*/
-  /*background-size: 50px;*/
 }
 
 a {
-  color: #00B7FF;
+ 	color: #00B7FF;
+	text-decoration: none !important;
 }
 
 #header {
@@ -17,7 +16,6 @@ a {
 }
 
 #header a {
-	text-decoration: none;
 	color: inherit;
 }
 
@@ -26,7 +24,7 @@ a {
 }
 
 #header h1:hover {
-	color: #415162;
+	/*color: #;*/
 }
 
 #header img {
@@ -44,4 +42,11 @@ a {
 
 .question {
 	text-align: center;
+	padding-bottom: 50px;
+}
+
+.shareable {
+	display: block;
+	text-align: center;
+	width: 100%;
 }

@@ -1,5 +1,9 @@
 extends layout
 
 block content
-	p Share Poll: 
-	a(href='#{poll._id}') /#{poll._id}
+
+	//- .row
+		//- .col-md-6.col-md-offset-3
+	h3.question Share your poll! 
+
+	a.shareable(href='#{poll._id}') #{poll._id}

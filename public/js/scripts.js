@@ -13,22 +13,18 @@ function addChoice() {
 function checkInputs() {
 	// check for empty question
 	$('.form-group :input').change(function() {
-		// check for at least one choice
-		// $('#choices input').change(function() {
-		// 	$('#submitpoll').removeClass('disabled');
-		// });
 
 		var q = $('.form-group input').val();
-		var c = false;
+		// var c = false;
 
-		$('#choices :input').each(function() {
-			if ($(this).val().length > 0) {
-				c = true;
-				return false;
-			}
-		});
-		
-		if (q.length && c) {
+		// $('#choices :input').each(function() {
+		// 	if ($(this).val().length > 0) {
+		// 		c = true;
+		// 		return false;
+		// 	}
+		// });
+
+		if (q.length) {
 			$('#submitpoll').removeClass('disabled');
 		}
 		else {
@@ -37,5 +33,30 @@ function checkInputs() {
 	});
 }
 
+function checkVotes() {
+	$('#voteform .input-group :input').change(function() {
+		if ($("#voteform input:checkbox:checked").length > 0)
+		{
+			$('#submitvote').removeClass('disabled');
+		}
+		else
+		{
+			$('#submitvote').addClass('disabled');
+		}
+	});
+}
+
+// prevent submitting with enter before validation
+$(document).ready(function() {
+	$(window).keydown(function (event) {
+		var dis = $('#submitpoll').hasClass("disabled");
+		if((event.keyCode == 13) && dis) {
+			event.preventDefault();
+			return false;
+	    }
+	})
+})
+
 addChoice();
 checkInputs();
+checkVotes();
