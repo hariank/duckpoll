@@ -56,8 +56,14 @@ exports.vote = function (req, res) {
 /* show poll results*/
 exports.results = function (req, res) {
 	Poll.findById(req.params.id, function (err, p) {
+		var sorted = p.choices;
+		sorted.sort(function (a, b) {
+			return b.votes - a.votes;
+		});
+
 		res.render('results', {
 			poll: p,
+			sorted_res: sorted,
 			title: 'Duckpoll'
 		});
 	});
