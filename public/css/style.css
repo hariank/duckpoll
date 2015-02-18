@@ -33,7 +33,7 @@ a {
 
 #voteform .input-group{
 	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-bottom: 5px;
 }
 
 	#voteform .input-group .checkbox{
@@ -54,7 +54,7 @@ a {
 
 #resultlist ol {
 	padding-top: 50px;
-	padding-bottom: 30px;
+	/*padding-bottom: 30px;*/
 }
 
 	#resultlist ol li{
@@ -109,4 +109,8 @@ input[type=radio] {
   transform: scale(1.5);
   /* Webkit browsers*/
   -webkit-transform: scale(1.5);
+}
+
+.total {
+	padding-left: 30px;
 }

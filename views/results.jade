@@ -17,13 +17,13 @@ block content
 						ol
 							each choice in sorted_res
 								+choiceres(choice)
-						h4 Total Votes: #{poll.totalVotes}
+						span.lead.total Total Votes: #{poll.totalVotes}
 
 				.col-md-4
 					#pie
 
-			.text-center
-				a#votebtn.btn.btn-primary(href='/#{poll._id}') Vote 
+			//- .text-center
+			//- 	a#votebtn.btn.btn-primary(href='/#{poll._id}') Vote 
 
 
 	block scripts
