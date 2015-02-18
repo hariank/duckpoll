@@ -4,11 +4,33 @@ block content
 	//- p Results of Poll #{poll_id}:
 	h3.question= poll.question
 
-	each choice in sorted_res
-		li #{choice.content} Votes: #{choice.votes}
+	mixin choiceres(choice)
+		li
+			span.lead #{choice.content} 
+			small votes: #{choice.votes}
 
-	a(href='/#{poll._id}') Vote
+	.row 
+		.col-md-6.col-md-offset-3
+			.row
+				.col-md-5
+					#resultlist
+						ol
+							each choice in sorted_res
+								+choiceres(choice)
 
-	script(type='text/javascript').
-		console.log(!{JSON.stringify(poll_id)});
-		console.log(!{JSON.stringify(poll_choices)});
+				.col-md-5
+					#pie
+
+			.text-center
+				a#votebtn.btn.btn-primary(href='/#{poll._id}') Vote 
+
+
+	block scripts
+		script(src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+		script(src = 'http://d3js.org/d3.v3.min.js', charset='utf-8')
+		script(src = '/js/d3pie.min.js', charset='utf-8')
+		script(src = '/js/chart.js')
+
+	script.
+		drawPie(!{JSON.stringify(sorted_res)});
+		// console.log(!{JSON.stringify(sorted_res)});

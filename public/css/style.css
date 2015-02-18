@@ -1,5 +1,5 @@
 body {
-  padding: 20px;
+  padding: 40px;
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
   /*overflow: scroll !important;*/
   background-color: #F4F2ED;
@@ -12,41 +12,101 @@ a {
 
 #header {
 	text-align: center;
-	padding-bottom: 20px;
+	padding-bottom: 50px;
 }
 
-#header a {
-	color: inherit;
-}
+	#header a {
+		color: inherit;
+	}
 
-#header h1 {
-	display: inline;
-}
-
-#header h1:hover {
-	/*color: #;*/
-}
-
-#header img {
-	width: 75px;
-	/*float: right;*/
-}
+	#header h1 {
+		display: inline;
+	}
 
 #pollform {
 	padding-top: 20px;
 }
 
-#pollform .form-group{
-	padding-bottom: 20px;
+	#pollform .form-group{
+		padding-bottom: 20px;
+	}
+
+#voteform .input-group{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+	#voteform .input-group .checkbox{
+		padding-bottom: 20px;
+	}
+
+		#voteform .input-group .checkbox label{
+			font-size: 16px !important;
+		}
+
+	#voteform .input-group .radio{
+		padding-bottom: 20px;
+	}
+
+		#voteform .input-group .radio label{
+			font-size: 16px !important;
+		}
+
+#resultlist ol {
+	padding-top: 75px;
+	padding-bottom: 30px;
+}
+
+	#resultlist ol li{
+		padding-bottom: 25px;
+	}
+
+		#resultlist ol li small{
+			/*float: right;*/
+		}
+
+#submitvote {
+	display: inline-block;
+}
+
+#resultsbtn {
+	text-align: center;
+	display: inline-block;
+}
+
+.divider {
+	width: 20px;
+	height: auto;
+	display: inline-block;
 }
 
 .question {
 	text-align: center;
-	padding-bottom: 50px;
+	/*padding-bottom: 30px;*/
 }
 
-.shareable {
+.link-centered {
 	display: block;
 	text-align: center;
 	width: 100%;
+	padding-top: 30px;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+input[type=checkbox] {
+  /* All browsers except webkit*/
+  transform: scale(1.5);
+  /* Webkit browsers*/
+  -webkit-transform: scale(1.5);
+}
+
+input[type=radio] {
+  /* All browsers except webkit*/
+  transform: scale(1.5);
+  /* Webkit browsers*/
+  -webkit-transform: scale(1.5);
 }

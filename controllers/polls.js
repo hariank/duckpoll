@@ -12,6 +12,9 @@ exports.home = function (req, res) {
 exports.create = function (req, res) {
 	console.log(req.body);
 
+	// var unique = req.body.unique;
+	var unique = true;
+
 	var choices = [];
 	for (var i = 0; i < req.body.choicearr.length; i++) {
 		if (req.body.choicearr[i].length > 0) {
@@ -23,7 +26,8 @@ exports.create = function (req, res) {
 		}
 	}
 
-	Poll.create({question: req.body.question, choices: choices}, function (err, p) {
+
+	Poll.create({question: req.body.question, unique: unique, choices: choices}, function (err, p) {
 		res.render('share', {
 			poll: p,
 			title: 'Duck Poll'

@@ -4,14 +4,30 @@ block content
 	h3.question= poll.question
 	//- p Vote on Poll #{poll._id}:
 
+	mixin choicerad(choice)
+		.radio
+			label
+				input(type='radio' name="rad" value= choice.index)
+				=choice.content
+
+	mixin choicebox(choice)
+		.checkbox
+			label
+				input(type='checkbox' name= choice.index)
+				=choice.content
+
 	.row
-		.col-md-6.col-md-offset-3
+		.col-md-4.col-md-offset-4
 			form(id='voteform', action = '/#{poll._id}', method='post')
 				.input-group
 					each choice in poll.choices
-						input(type='checkbox' name= choice.index)
-						text= choice.content
-						br
-				button#submitvote.btn.btn-primary.disabled.center-block(type = 'submit') Vote!
-		a.link(href='#{poll._id}/results') Results 
+						if poll.unique == true
+							+choicerad(choice)
+						else
+							+choicebox(choice)
+						
+				.text-center
+					button#submitvote.btn.btn-primary.disabled(type = 'submit') Vote!
+					.divider
+					a#resultsbtn.btn.btn-primary(href='#{poll._id}/results') Results 
 	

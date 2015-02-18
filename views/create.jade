@@ -3,14 +3,13 @@ extends layout
 block content
 	//- p Create a Poll:
 
-
 	mixin choice
 		input.form-control(type='text', name='choicearr', placeholder='Choice')
 
 	//- .container
 	.row
 		.col-md-6.col-md-offset-3
-			a(href='/54e3b28cb00cd1f832bf6cec') TEST LINK
+			a.question.link-centered(href='/54e504c014c6244c3a191e25') Example Poll
 			form(id='pollform', action='/', method='post')
 				.form-group
 					input#inpq.form-control(type='text', name='question', placeholder='Enter a question...')
@@ -19,6 +18,8 @@ block content
 						+choice
 						#lastchoice
 							+choice
+					//- label(for='unique') Multiple Selections?
+					//- 	input(type='checkbox' name= 'unique')
 				button#submitpoll.btn.btn-primary.disabled.center-block(type = 'submit') Go!
 
 	

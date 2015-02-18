@@ -35,7 +35,7 @@ function checkInputs() {
 
 function checkVotes() {
 	$('#voteform .input-group :input').change(function() {
-		if ($("#voteform input:checkbox:checked").length > 0)
+		if ($("#voteform input:checkbox:checked").length > 0 || $("#voteform input:radio:checked").length > 0)
 		{
 			$('#submitvote').removeClass('disabled');
 		}
