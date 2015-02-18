@@ -9,11 +9,12 @@ var PollSchema = new mongoose.Schema({
 PollSchema.path('question').required(true);
 
 PollSchema.methods = {
-	voteChoice: function (choiceInd, callback) {
-		this.choices[choiceInd].votes += 1;
-		this.save(function() {
-			callback();
-		});
+	addVotes: function (selected, callback) {
+		for (var ind in selected) {
+			this.choices[ind].votes += 1;
+		}
+		this.markModified('choices');
+		this.save(callback);
 	}
 }
 

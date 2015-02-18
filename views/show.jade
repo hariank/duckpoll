@@ -4,10 +4,9 @@ block content
 	h3= poll.question
 	//- p Vote on Poll #{poll._id}:
 
-	form(id='voteForm', action= poll._id, method='post')
+	form(id='voteForm', action = '/#{poll._id}', method='post')
 		.input-group
 			each choice in poll.choices
-				//- .radio
 				input(type='checkbox' name= choice.index)
 				text= choice.content
 				br

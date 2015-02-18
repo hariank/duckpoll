@@ -45,18 +45,10 @@ exports.show = function (req, res) {
 
 /* vote on poll */
 exports.vote = function (req, res) {
-	console.log(req.body);
-
 	Poll.findById(req.params.id, function (err, p) {
-		for (var ind in req.body) {
-			p.voteChoice(ind, function(err) {
-				console.log(p.choices);
-				res.render('results', {
-					poll: p,
-					title: 'Duckpoll'
-				});
-			});
-		}
+		p.addVotes(req.body, function(err) {
+			res.redirect(req.params.id + '/results');
+		});
 	});
 };
 

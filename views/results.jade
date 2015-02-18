@@ -7,6 +7,8 @@ block content
 	each choice in poll.choices
 		li #{choice.content} Votes: #{choice.votes}
 
+	a(href='/#{poll._id}') Vote
+
 	script(type='text/javascript').
 		console.log(!{JSON.stringify(poll_id)});
 		console.log(!{JSON.stringify(poll_choices)});
