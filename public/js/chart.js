@@ -25,10 +25,12 @@ function drawPie(data) {
 		},
 		"labels": {
 			"outer": {
+				"hideWhenLessThanPercentage": 2,
 				"pieDistance": 32
 			},
 			"inner": {
-				"format": "value"
+				"hideWhenLessThanPercentage": 2,
+				"format": "percentage"
 			},
 			"mainLabel": {
 				"font": "verdana"
