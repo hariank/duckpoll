@@ -1,6 +1,10 @@
 body {
   padding: 20px;
   /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  /*overflow: scroll !important;*/
+  background-color: #F4F2ED;
+  /*background-image: url(../img/duck.png);*/
+  /*background-size: 50px;*/
 }
 
 a {
@@ -8,5 +12,36 @@ a {
 }
 
 #header {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+#header a {
+	text-decoration: none;
+	color: inherit;
+}
+
+#header h1 {
+	display: inline;
+}
+
+#header h1:hover {
+	color: #415162;
+}
+
+#header img {
+	width: 75px;
+	/*float: right;*/
+}
+
+#pollform {
+	padding-top: 20px;
+}
+
+#pollform .form-group{
+	padding-bottom: 20px;
+}
+
+.question {
 	text-align: center;
 }

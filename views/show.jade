@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	h3= poll.question
+	h3.question= poll.question
 	//- p Vote on Poll #{poll._id}:
 
 	form(id='voteForm', action = '/#{poll._id}', method='post')

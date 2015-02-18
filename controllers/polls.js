@@ -4,7 +4,7 @@ var Poll = require('../models/poll.js');
 /* user input */
 exports.home = function (req, res) {
 	res.render('create', {
-		title: 'Duckpoll'
+		title: 'Duck Poll'
 	});
 };
 
@@ -26,7 +26,7 @@ exports.create = function (req, res) {
 	Poll.create({question: req.body.question, choices: choices}, function (err, p) {
 		res.render('share', {
 			poll: p,
-			title: 'Duckpoll'
+			title: 'Duck Poll'
 		});
 	});
 };
@@ -38,7 +38,7 @@ exports.show = function (req, res) {
 
 		res.render('show', {
 			poll: p,
-			title: 'Duckpoll'
+			title: 'Duck Poll'
 		});
 	});
 };
@@ -64,7 +64,7 @@ exports.results = function (req, res) {
 		res.render('results', {
 			poll: p,
 			sorted_res: sorted,
-			title: 'Duckpoll'
+			title: 'Duck Poll'
 		});
 	});
 };

@@ -2,7 +2,7 @@ extends layout
 
 block content
 	//- p Results of Poll #{poll_id}:
-	h3= poll.question
+	h3.question= poll.question
 
 	each choice in sorted_res
 		li #{choice.content} Votes: #{choice.votes}
