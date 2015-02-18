@@ -13,13 +13,13 @@ block content
 			a(href='/54e3b28cb00cd1f832bf6cec') TEST LINK
 			form(id='pollform', action='/', method='post')
 				.form-group
-					input.form-control(type='text', name='question', placeholder='Enter a question...')
+					input#inpq.form-control(type='text', name='question', placeholder='Enter a question...')
 					#choices
 						+choice
 						+choice
 						#lastchoice
 							+choice
-				button.btn.btn-primary.center-block(type = 'submit') Go!
+				button#submitpoll.btn.btn-primary.disabled.center-block(type = 'submit') Go!
 
 	
 
